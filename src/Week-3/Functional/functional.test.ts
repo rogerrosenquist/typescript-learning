@@ -5,17 +5,17 @@ import { createLogger } from './logger.js';
 describe('Functional Store Pattern', () => {
   
   it('should hold state and notify listeners (Closure behavior)', () => {
-    // 1. Create a simplified number store
+    // Create a simplified number store
     const store = createStore<number>(0);
     const spy = vi.fn();
 
-    // 2. Subscribe
+    // Subscribe
     store.subscribe(spy);
 
-    // 3. Act
+    // Act
     store.set(10);
 
-    // 4. Assert
+    // Assert
     expect(store.get()).toBe(10);
     expect(spy).toHaveBeenCalledWith(10);
   });
@@ -33,10 +33,10 @@ describe('Functional Store Pattern', () => {
     loggedStore.set('updated');
 
     // Assert
-    // 1. The state should still change
+    // The state should still change
     expect(loggedStore.get()).toBe('updated');
     
-    // 2. The console should have fired logic from the wrapper
+    // The console should have fired logic from the wrapper
     expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('Action: Updating State...'));
     
     // Cleanup

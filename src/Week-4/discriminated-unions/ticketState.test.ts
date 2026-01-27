@@ -1,4 +1,3 @@
-// src/ticketState.test.ts
 import { describe, it, expect } from 'vitest';
 import { getStatusMessage } from './ticketState.js';
 import type { TicketState } from './ticketState.js';

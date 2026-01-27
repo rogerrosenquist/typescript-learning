@@ -9,11 +9,11 @@ export interface Store<T> {
 
 // The Factory Function (Closure)
 export function createStore<T>(initialState: T): Store<T> {
-  // 1. Internal State (Private by default because it's inside the function scope)
+  // Internal State (Private by default because it's inside the function scope)
   let state = initialState;
   const listeners = new Set<Listener<T>>();
 
-  // 2. The Methods
+  // The Methods
   const get = () => state;
 
   const set = (newState: T) => {
@@ -30,6 +30,6 @@ export function createStore<T>(initialState: T): Store<T> {
     };
   };
 
-  // 3. Return the public interface
+  // Return the public interface
   return { get, set, subscribe };
 }

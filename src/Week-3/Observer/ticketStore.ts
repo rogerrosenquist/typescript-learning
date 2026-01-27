@@ -1,13 +1,13 @@
 import { ObservableStore } from './observable.js';
 
-// 1. Define the shape of a Ticket
+// Define the shape of a Ticket
 export interface Ticket {
   id: string;
   title: string;
   status: 'Open' | 'In-Progress' | 'Done';
 }
 
-// 2. Create the Store extending the generic Observable
+// Create the Store extending the generic Observable
 export class TicketStore extends ObservableStore<Ticket[]> {
   constructor() {
     // Initialize with an empty array of tickets

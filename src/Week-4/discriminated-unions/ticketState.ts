@@ -1,11 +1,11 @@
-// 1. The Domain Entity
+// The Domain Entity
 export type Ticket = {
   id: string;
   title: string;
   price: number;
 };
 
-// 2. The Discriminated States
+// The Discriminated States
 // Note: Each state has a specific 'kind' literal.
 
 export type LoadingState = {
@@ -26,10 +26,10 @@ export type IdleState = {
   kind: 'idle';
 };
 
-// 3. The Union (The only type our UI will ever see)
+// The Union (The only type our UI will ever see)
 export type TicketState = LoadingState | ErrorState | SuccessState| IdleState;
 
-// 4. A helper to simulate a UI component render or logic handler
+// A helper to simulate a UI component render or logic handler
 // This demonstrates "Exhaustiveness Checking"
 export function getStatusMessage(state: TicketState): string {
   switch (state.kind) {
