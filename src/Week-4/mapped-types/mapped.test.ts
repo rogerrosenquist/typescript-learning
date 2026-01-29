@@ -13,7 +13,7 @@ describe('Mapped Types', () => {
     };
     
     // Vitest helper to assert types match
-    expectTypeOf(newTicket).toMatchTypeOf<CreateTicketInput>();
+    expectTypeOf(newTicket).toEqualTypeOf<CreateTicketInput>();
   });
 
   it('should allow partial updates', () => {
@@ -23,7 +23,7 @@ describe('Mapped Types', () => {
       price: 99
     };
 
-    expectTypeOf(updatePayload).toMatchTypeOf<UpdateTicketInput>();
+    expectTypeOf(updatePayload).toEqualTypeOf<UpdateTicketInput>();
   });
 
   it('should prevent mutation on Readonly types', () => {
@@ -37,6 +37,6 @@ describe('Mapped Types', () => {
     // If you uncomment the line below, the test file itself should fail to compile.
     // ticket.price = 20; 
 
-    expectTypeOf(ticket).toMatchTypeOf<Readonly<Ticket>>();
+    expectTypeOf(ticket).toEqualTypeOf<Readonly<Ticket>>();
   });
 });
